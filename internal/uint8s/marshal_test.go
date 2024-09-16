@@ -15,6 +15,43 @@ func TestMarshal(t *testing.T) {
 		Expected []byte
 	}{
 		{
+			Value: 0,
+			Expected: []byte{0x00},
+		},
+		{
+			Value: 1,
+			Expected: []byte{0x01},
+		},
+		{
+			Value: 10,
+			Expected: []byte{0x0a},
+                },
+		{
+			Value: 23,
+			Expected: []byte{0x17},
+		},
+		{
+			Value: 24,
+			Expected: []byte{0x18,0x18},
+		},
+		{
+			Value: 25,
+			Expected: []byte{0x18,0x19},
+		},
+		{
+			Value: 100,
+			Expected: []byte{0x18,0x64},
+		},
+
+
+
+
+
+
+
+
+
+		{
 			Value:           0,
 			Expected: []byte{0},
 		},
