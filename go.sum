@@ -1,2 +1,6 @@
+github.com/reiver/go-bits128 v0.0.0-20240919144652-a213a39f029b h1:2bKlKbMfnOpQERwW+9Ic+fArVxw4bvmKCW3r05vDHYQ=
+github.com/reiver/go-bits128 v0.0.0-20240919144652-a213a39f029b/go.mod h1:+kZImjDaR3ZfxcWj/btyhLWM+hlE1uaA98V0I4azG+o=
 github.com/reiver/go-erorr v0.0.0-20240801233437-8cbde6d1fa3f h1:D1QSxKHm8U73XhjsW3SFLkT0zT5pKJi+1KGboMhY1Rk=
 github.com/reiver/go-erorr v0.0.0-20240801233437-8cbde6d1fa3f/go.mod h1:F0HbBf+Ak2ZlE8YkDW4Y+KxaUmT0KaaIJK6CXY3cJxE=
+github.com/reiver/go-rfc8949 v0.0.0-20240919165445-78dbdeeb1716 h1:8cR912Ba0EYGTZFUMTaNrR4DPmZ8RYuPNQMrgBADvdY=
+github.com/reiver/go-rfc8949 v0.0.0-20240919165445-78dbdeeb1716/go.mod h1:LAK2dW6KZfMoMsLigXaRQiInHuRBiOXMfbV13NKyHtk=
