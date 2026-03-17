@@ -27,7 +27,7 @@ func Marshal(value any) ([]byte, error) {
 	case bool:
 		return bools.Marshal(casted)
 	case int:
-		return Marshal(int64(casted))
+		return int64s.Marshal(int64(casted))
 	case int8:
 		return int8s.Marshal(casted)
 	case int16:
@@ -37,7 +37,7 @@ func Marshal(value any) ([]byte, error) {
 	case int64:
 		return int64s.Marshal(casted)
 	case uint:
-		return Marshal(uint64(casted))
+		return uint64s.Marshal(uint64(casted))
 	case uint8: // byte
 		return uint8s.Marshal(casted)
 	case uint16:
