@@ -8,6 +8,18 @@ Online documentation, which includes examples, can be found at: http://godoc.org
 
 [![GoDoc](https://godoc.org/github.com/reiver/go-cbor?status.svg)](https://godoc.org/github.com/reiver/go-cbor)
 
+## JSON versus CBOR
+
+**CBOR** is sometimes compared to **JSON**.
+
+Sometimes CBOR is called a **binary JSON**.
+
+There is some truth to that, but — there are also **a lot** of differences between **CBOR** and **JSON**.
+
+**CBOR** and **JSON** are similar in that — they are both ways of represents hierarchical key-value pairs.
+
+But, **CBOR** has different **basic-types** than **JSON**.
+
 ## Import
 
 To import package **cbor** use `import` code like the following:
