@@ -67,6 +67,11 @@ func Marshal(value any) ([]byte, error) {
 			return ipv4s.Marshal(casted)
 		}
 		return ipv6s.Marshal(casted)
+	case netip.Prefix:
+		if casted.Addr().Unmap().Is4() {
+			return ipv4s.MarshalPrefix(casted)
+		}
+		return ipv6s.MarshalPrefix(casted)
 	default:
 		return nil, erorr.Errorf("cbor: cannot marshal value of type %T", value)
 	}
