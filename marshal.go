@@ -4,6 +4,7 @@ import (
 	"github.com/reiver/go-erorr"
 
 	"github.com/reiver/go-rfc8949/types/bools"
+	"github.com/reiver/go-rfc8949/types/bytestrings"
 	"github.com/reiver/go-rfc8949/types/nils"
 	"github.com/reiver/go-rfc8949/types/int8s"
 	"github.com/reiver/go-rfc8949/types/int16s"
@@ -24,6 +25,8 @@ func Marshal(value any) ([]byte, error) {
 	switch casted := value.(type) {
 	case Marshaler:
 		return casted.MarshalCBOR()
+	case []byte:
+		return bytestrings.Marshal(casted)
 	case bool:
 		return bools.Marshal(casted)
 	case int:
