@@ -1,6 +1,7 @@
 package cbor
 
 import (
+	"net/netip"
 	"net/url"
 
 	"github.com/reiver/go-erorr"
@@ -15,6 +16,8 @@ import (
 	"github.com/reiver/go-rfc8949/types/uint8s"
 	"github.com/reiver/go-rfc8949/types/uint16s"
 	"github.com/reiver/go-rfc8949/types/uint32s"
+	"github.com/reiver/go-rfc8949/types/tags/ipv4s"
+	"github.com/reiver/go-rfc8949/types/tags/ipv6s"
 	"github.com/reiver/go-rfc8949/types/tags/uris"
 	"github.com/reiver/go-rfc8949/types/textstrings"
 	"github.com/reiver/go-rfc8949/types/uint64s"
@@ -59,6 +62,11 @@ func Marshal(value any) ([]byte, error) {
 		return uris.Marshal(&casted)
 	case *url.URL:
 		return uris.Marshal(casted)
+	case netip.Addr:
+		if casted.Unmap().Is4() {
+			return ipv4s.Marshal(casted)
+		}
+		return ipv6s.Marshal(casted)
 	default:
 		return nil, erorr.Errorf("cbor: cannot marshal value of type %T", value)
 	}
