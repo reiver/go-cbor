@@ -29,10 +29,10 @@ func Marshal(value any) ([]byte, error) {
 	switch casted := value.(type) {
 	case Marshaler: // This must come first.
 		return casted.MarshalCBOR()
-	case []byte:
-		return bytestrings.Marshal(casted)
 	case bool:
 		return bools.Marshal(casted)
+	case []byte:
+		return bytestrings.Marshal(casted)
 	case int:
 		return int64s.Marshal(int64(casted))
 	case int8:
@@ -43,6 +43,8 @@ func Marshal(value any) ([]byte, error) {
 		return int32s.Marshal(casted)
 	case int64:
 		return int64s.Marshal(casted)
+	case string:
+		return textstrings.Marshal(casted)
 	case uint:
 		return uint64s.Marshal(uint64(casted))
 	case uint8: // byte
@@ -53,8 +55,6 @@ func Marshal(value any) ([]byte, error) {
 		return uint32s.Marshal(casted)
 	case uint64:
 		return uint64s.Marshal(casted)
-	case string:
-		return textstrings.Marshal(casted)
 	case url.URL:
 		return uris.Marshal(&casted)
 	case *url.URL:
