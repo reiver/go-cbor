@@ -1,6 +1,8 @@
 package cbor
 
 import (
+	"net/url"
+
 	"github.com/reiver/go-erorr"
 
 	"github.com/reiver/go-rfc8949/types/bools"
@@ -13,6 +15,7 @@ import (
 	"github.com/reiver/go-rfc8949/types/uint8s"
 	"github.com/reiver/go-rfc8949/types/uint16s"
 	"github.com/reiver/go-rfc8949/types/uint32s"
+	"github.com/reiver/go-rfc8949/types/tags/uris"
 	"github.com/reiver/go-rfc8949/types/textstrings"
 	"github.com/reiver/go-rfc8949/types/uint64s"
 )
@@ -52,6 +55,10 @@ func Marshal(value any) ([]byte, error) {
 		return uint64s.Marshal(casted)
 	case string:
 		return textstrings.Marshal(casted)
+	case url.URL:
+		return uris.Marshal(&casted)
+	case *url.URL:
+		return uris.Marshal(casted)
 	default:
 		return nil, erorr.Errorf("cbor: cannot marshal value of type %T", value)
 	}
