@@ -23,7 +23,7 @@ func Marshal(value any) ([]byte, error) {
 	}
 
 	switch casted := value.(type) {
-	case Marshaler:
+	case Marshaler: // This must come first.
 		return casted.MarshalCBOR()
 	case []byte:
 		return bytestrings.Marshal(casted)
